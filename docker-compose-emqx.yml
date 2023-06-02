@@ -1,0 +1,18 @@
+version: '3'
+# mqtt 服务
+services: 
+  Emqx:
+    container_name: toma-emqx
+    image: emqx/emqx:5.0.12
+    # volumes:
+    # ./etcd/data:/bitnami/etcd/data
+    ports: 
+      - 1883:1883
+      - 8083:8083
+      - 8084:8084 
+      - 8883:8883 
+      - 18083:18083
+
+    # 开启 EMQX 认证，访问地址：http://127.0.0.1:18083/ 
+    # 默认的端口是 18083，根据自己的地址调整即可；
+    # 默认用户名和密码为 admin/public
