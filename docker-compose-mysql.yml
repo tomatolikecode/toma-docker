@@ -1,0 +1,24 @@
+version: '3'
+
+services: 
+  mysql:
+    container_name: toma-mysql
+    image: mysql:5.7
+    restart: always
+    ports: 
+      - 3306:3306
+    environment:
+      TZ: Asiz/Shanghai
+      MYSQL_ROOT_PASSWORD: fanqie
+      MYSQL_DATABASE: tome_mall
+    # volumes:
+      # - ./mysql/data:/var/lib/mysql
+      # - ./mysql/conf:/etc/mysql/conf.d/
+      # - ./mysql/conf:logs:/logs
+    command:
+      --default-authentication-plugin=mysql_native_password
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_general_ci
+      --explicit_defaults_for_timestamp=true
+      --lower_case_table_names=1
+
